@@ -1,11 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Express Static</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>National Word Nerd Day — Word Garden</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Hello from Express</h1>
-    <p>This file is being served!</p>
+    <main class="container">
+      <header class="site-header">
+        <div class="logo">📚</div>
+        <div class="title-wrap">
+          <h1 class="site-title">Word Garden</h1>
+          <p class="site-sub">A cozy vocabulary game for National Word Nerd Day</p>
+        </div>
+      </header>
+
+      <section class="landing" id="landing" aria-hidden="false">
+        <div class="texture" id="texture" aria-hidden="true"></div>
+        <h2 class="welcome">Welcome to National Word Nerd Day</h2>
+        <div class="landing-inner">
+          <div class="landing-card">
+            <h3 class="landing-card-title">Vocabulary Garden</h3>
+            <p class="landing-sub">A gentle vocab quiz to grow your word garden.</p>
+            <div class="landing-actions">
+              <button id="startBtn" class="btn start">Play Vocabulary Garden</button>
+              <button id="goWordleBtn" class="btn ghost">Play Wordle-style Challenge</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="game-panel hidden" id="game" aria-hidden="true">
+        <div class="word-card">
+          <div class="word-meta">
+            <div class="progress">Question <span id="qIndex">1</span>/<span id="qTotal">1</span></div>
+            <div class="score">Score: <span id="score">0</span></div>
+          </div>
+          <h2 id="word" class="word">word</h2>
+          <p class="hint">Choose the best definition:</p>
+          <div id="options" class="options" role="list">
+            <!-- buttons injected here -->
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="nextBtn" class="btn" disabled>Next</button>
+          <button id="restartBtn" class="btn ghost">Restart</button>
+          <button id="backHomeVocab" class="btn ghost">Back to Home</button>
+        </div>
+      </section>
+
+      <section class="game-panel hidden" id="wordle" aria-hidden="true">
+        <div class="wordle-wrap">
+          <div class="wordle-meta">
+            <div class="progress">Wordle-style Challenge</div>
+            <div class="score">Attempts: <span id="wAttempts">0</span>/6</div>
+          </div>
+          <div id="wordleGrid" class="wordle-grid" aria-live="polite"></div>
+          <div id="wordleStats" class="wordle-stats" aria-hidden="false"></div>
+          <div id="wordleKeyboard" class="keyboard"></div>
+          <div class="controls" style="justify-content:flex-end;margin-top:12px">
+            <button id="wordleRestart" class="btn ghost">Restart Wordle</button>
+            <button id="toVocab" class="btn">Back to Vocab</button>
+            <button id="backHomeWordle" class="btn ghost">Back to Home</button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <p>Celebrate words. Learn gently. Repeat.</p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
